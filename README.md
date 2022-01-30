@@ -1,3 +1,8 @@
+My overall plan for my website is to build - 
+1. Idle Clicker (basically done)
+2. Gear Optimizer for an idle phone game called "Ezpz Saga"
+3. Some sort of app that utilizes a back end and maybe user accounts?
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
