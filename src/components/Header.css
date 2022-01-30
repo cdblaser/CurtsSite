@@ -1,0 +1,29 @@
+.header {
+  border-style: solid;
+  border-color: rgb(68, 7, 97);
+  border-radius: 5px;
+  background-color: yellow;
+}
+a:visited {
+  color: black;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+
+  font-family: monospace;
+}
+.title-link {
+  text-decoration: none;
+}
+.links {
+  display: flex;
+  font-family: "Courier New", Courier, monospace;
+  justify-content: flex-start;
+}
+.item {
+  font-family: monospace;
+  font-size: medium;
+  padding: 10px;
+}

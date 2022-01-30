@@ -1,0 +1,49 @@
+.ui {
+  font-family: monospace;
+}
+
+.damage {
+  display: flex;
+  justify-content: center;
+
+  font-family: monospace;
+
+  margin: 10px;
+}
+
+.idle {
+  display: flex;
+  justify-content: center;
+
+  font-family: monospace;
+
+  margin: 10px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.world {
+  display: flex;
+  justify-content: center;
+  border-style: solid;
+  border-color: black;
+}
+.hp {
+  display: flex;
+  justify-content: center;
+
+  font-family: monospace;
+
+  margin: 10px;
+}
+.gold {
+  display: flex;
+  justify-content: center;
+
+  font-family: monospace;
+
+  margin: 10px;
+}
