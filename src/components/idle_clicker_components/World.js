@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
-import Player from "./Player";
+
 import "./IdleClicker.css";
 
 const World = ({ width, height }) => {

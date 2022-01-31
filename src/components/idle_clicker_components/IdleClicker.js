@@ -12,27 +12,26 @@ It will actually be dependent on the callback, but since that is a ref variable 
 */
 
 const IdleClicker = () => {
-  const [click, setClick] = useState(1);
+  //const [click, setClick] = useState(1);
   const [damage, setDamage] = useState(0);
   const [auto, setAuto] = useState(0);
   const [hp, setHp] = useState(10);
   const [gold, setGold] = useState(0);
   const callback = useRef();
 
-  const monster = () => {
-    if (hp <= 0) {
-      setHp(10);
-      setGold(gold + 10);
-    }
-  };
-
   useEffect(() => {
+    const monster = () => {
+      if (hp <= 0) {
+        setHp(10);
+        setGold(gold + 10);
+      }
+    };
     callback.current = () => {
       setDamage(damage + auto);
       setHp(hp - auto);
     };
     monster();
-  }, [damage, auto, hp]);
+  }, [damage, auto, hp, gold]);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -44,8 +43,8 @@ const IdleClicker = () => {
   }, [callback]);
 
   const onClick = (e) => {
-    setDamage(damage + click);
-    setHp(hp - click);
+    setDamage(damage + 1);
+    setHp(hp - 1);
   };
 
   const buyTier1 = (e) => {
