@@ -44,7 +44,8 @@ const GearOpt = () => {
               ([bonus, bonusValue], index) => {
                 if (index <= gearCount - 2) {
                   return ` ${bonus} - ${bonusValue} `;
-                } else return;
+                }
+                return null;
               }
             )}
           </div>
@@ -60,19 +61,14 @@ const GearOpt = () => {
 
   return (
     <div className="gear">
-      <div className="row1">
+      <div className="column1">
         {gearSlots.map((slot, i) => {
           return (
-            <div className="column1">
-              <ChooseGear
-                slot={slot.slot}
-                key={slot.slot}
-                onChoose={onChoose}
-              />
-            </div>
+            <ChooseGear slot={slot.slot} key={slot.slot} onChoose={onChoose} />
           );
         })}
       </div>
+
       <div className="column2">
         <div>Set Bonuses: {displayBonuses()}</div>
       </div>

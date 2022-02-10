@@ -19,7 +19,8 @@ const ChooseGear = ({ slot, onChoose }) => {
           <button onClick={onClick}>{set.itemList[slot]}</button>
         </div>
       );
-    } else return;
+    }
+    return null;
   });
 
   const removeSelected = selected ? (
