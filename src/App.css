@@ -1,11 +1,30 @@
 body {
   display: block;
-  justify-content: center;
-  align-items: center;
 
   font-family: monospace;
-  background-color: #4b0082;
+  background-color: #2d2b55;
   padding: 10px;
   margin: 0;
-  color: whitesmoke;
+  color: #fad000;
+}
+
+.placeholder {
+  color: #2d2b55;
+  color: #1e1e3f;
+  color: #a599e9;
+  color: #4d21fc;
+  color: #fad000;
+  color: #ffee80;
+  color: #faefa5;
+  color: #ff7200;
+  color: #b362ff;
+  color: #ff628c;
+  color: #ff9d00;
+  color: #9effff;
+  color: #a5ff90;
+  color: #3ad900;
+  color: #fb94ff;
+  color: #ec3a37f5;
+  color: #00ff009a;
+  color: #ff000d81;
 }

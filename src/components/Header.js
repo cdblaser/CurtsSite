@@ -14,10 +14,10 @@ const Header = () => {
           Home
         </Link>
         <Link href="/idleclicker" className="item">
-          Idle Clicker Game
+          Idle Game
         </Link>
         <Link href="/gearoptimizer" className="item">
-          EzPz Gear Optimizer
+          EzPzSaga Gear Selector
         </Link>
       </div>
     </div>

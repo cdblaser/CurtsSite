@@ -6,12 +6,9 @@
   padding: auto;
 }
 
-p {
-  align-self: center;
-}
-
 .world {
   margin: auto;
+  border: 3px solid #a599e9;
 }
 
 .green {
@@ -49,13 +46,6 @@ p {
 .buttons {
   display: flex;
   justify-content: center;
-}
-
-.world {
-  display: flex;
-  justify-content: center;
-  border-style: solid;
-  border-color: black;
 }
 .hp {
   display: flex;
