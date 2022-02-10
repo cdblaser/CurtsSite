@@ -2,7 +2,16 @@ import React, { useState, useEffect, useRef } from "react";
 import World from "./World";
 import "./IdleClicker.css";
 
-/* excerpt about useRef:
+/* 
+
+Things to add:
+1. increase monster hp over time
+2. increase manual click damage by upgrading
+3. increase gold costs for manual click damage and idle damage
+4. add drops that give increased manual click damage or idle levels
+5. add classes that give extra (randomized) click or idle damage, gold, or something
+
+excerpt about useRef:
 In order to create such a loop we are going to use setInterval(). The problem is, setInterval doesn’t really like to play nicely with React hooks. 
 In order to make it work we’ll need to create a callback function, which will execute on each iteration of setInterval. 
 Since this function will depend on the current state to tally up all the clicks, it will need to be created anew on each iteration. 
@@ -17,13 +26,20 @@ const IdleClicker = () => {
   const [auto, setAuto] = useState(0);
   const [hp, setHp] = useState(10);
   const [gold, setGold] = useState(0);
+  const [level, setLevel] = useState(1);
   const callback = useRef();
 
   useEffect(() => {
     const monster = () => {
       if (hp <= 0) {
-        setHp(10);
-        setGold(gold + 10);
+        if (auto > 10) {
+          setHp(Math.round(Math.random() * 100 + 50));
+          setGold(gold + 12);
+        } else {
+          setHp(Math.round(Math.random() * 30 + 10));
+          setGold(gold + 10);
+        }
+        setLevel(level + 1);
       }
     };
     callback.current = () => {
@@ -31,7 +47,7 @@ const IdleClicker = () => {
       setHp(hp - auto);
     };
     monster();
-  }, [damage, auto, hp, gold]);
+  }, [damage, auto, hp, gold, level]);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -54,24 +70,29 @@ const IdleClicker = () => {
     }
   };
 
+  const canBuy = gold >= 10 ? "green" : "red";
+
   return (
-    <div className="ui page">
-      Warning! If you click away from this page, you will lose your progress.
+    <div className="idle-clicker">
+      <p>
+        Warning! If you click away from this page, you will lose your progress.
+      </p>
+      Level: {level}
       <World width="500px" height="250px" />
       <div className="damage">
         <button type="button" className="damage" onClick={onClick}>
-          Do damage! (damage: 1)
+          Do 1 damage!
         </button>
       </div>
-      <div className="damage">
-        <button type="button" className="idle" onClick={buyTier1}>
-          Buy Idleclicker! Cost: 10 gold
+      <div className="helper">
+        <button type="button" className={canBuy} onClick={buyTier1}>
+          Buy helper! Cost: 10 gold
         </button>
       </div>
-      <div className="idle text">Idleclicker Value: {auto}</div>
-      <div className="damage text"> Total Damage: {damage}</div>
-      <div className="hp">Total hp: {hp}</div>
-      <div className="gold">Total gold: {gold}</div>
+      <div className="idle-text">Idleclicker Value: {auto}</div>
+      <div className="damage-text"> Total Damage: {damage}</div>
+      <div className="hp-text">Total hp: {hp}</div>
+      <div className="gold-text">Total gold: {gold}</div>
     </div>
   );
 };

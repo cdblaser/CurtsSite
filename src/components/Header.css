@@ -1,29 +1,50 @@
 .header {
-  border-style: solid;
-  border-color: rgb(68, 7, 97);
-  border-radius: 5px;
-  background-color: yellow;
-}
-a:visited {
-  color: black;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.658);
+  font-family: monospace;
 }
 
 .title {
-  display: flex;
-  justify-content: center;
-
-  font-family: monospace;
+  align-self: center;
 }
+
+a:visited {
+  color: whitesmoke;
+}
+
 .title-link {
   text-decoration: none;
+  color: whitesmoke;
 }
-.links {
-  display: flex;
-  font-family: "Courier New", Courier, monospace;
-  justify-content: flex-start;
+
+.navbar {
+  background-color: gray;
 }
+
+.navbar a {
+  float: left;
+  color: whitesmoke;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  opacity: 0.6;
+}
+.navbar a:active {
+  opacity: 0.4;
+}
+
 .item {
   font-family: monospace;
   font-size: medium;
   padding: 10px;
+  background-color: rgba(129, 123, 123, 0.637);
+}
+
+.current-item {
+  background-color: rgba(136, 50, 185, 0.705);
+  text-decoration: none;
+  opacity: 0.8;
 }

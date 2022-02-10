@@ -2,7 +2,11 @@ import React from "react";
 
 const Home = () => {
   return (
-    <p>This is the homepage. I'm glad you came. There is only so much time.</p>
+    <p>
+      Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur
+      adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+      magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.
+    </p>
   );
 };
 

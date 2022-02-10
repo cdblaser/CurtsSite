@@ -5,12 +5,11 @@ import "./Header.css";
 const Header = () => {
   return (
     <div className="header">
-      <h1 className="title">
-        <Link href="/" className="title-link">
-          Welcome to Curtis's website!
-        </Link>
-      </h1>
-      <div className="links">
+      <div className="title">
+        <h1>Welcome to Curtis's website!</h1>
+      </div>
+
+      <div className="navbar">
         <Link href="/" className="item">
           Home
         </Link>
