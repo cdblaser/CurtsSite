@@ -1,7 +1,7 @@
 # ReactIdle
 This is a super simple idle clicker built with React - State, Lifecycle, and Ref.
 
-To run the code - I'm not too sure how to do this from the other side. I imagine you'd want to npx create-react-app, pull the code, then npm start as usual.
+To run the code - I'm not too sure how to do this from the other side. I imagine you'd want to npx create-react-app, pull the code from master branch, then npm start as usual.
 
 The hardest part was getting the setInterval() method to work with upgrading the idle clicker. The main issue was - every time the user clicked a button to damage or level up the idle clicker, setInterval() would reset; this would prevent the continuous, idle damage from occurring simultaneously with the user manually damaging the enemy. 
 
