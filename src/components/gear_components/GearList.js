@@ -1,119 +1,40 @@
-const GearList = [
-  {
-    id: 0,
-    name: "Childhood Memories",
-    setLvl: 20,
-    itemList: {
-      amulet: "Jenny's Necklace",
-      ring: "Karl's Ring",
-      twoHand: "Otok's Pitchfork",
-    },
-    setBonuses: { mAtk: 5640, castRate: 0.15 },
-  },
+import React from "react";
+import Gear from "./Gear";
 
-  {
-    id: 1,
-    name: "Blood Wolf",
-    setLvl: 30,
-    itemList: {
-      helmet: "Howl of the Blood Wolf",
-      armor: "Blood Wolf Bone Armor",
-      rHand: "Blood Wolf Claws",
-      lHand: "Blood Wolf Scales",
-    },
-    setBonuses: { crit: 0.1, spd: 358, str: 1194 },
-  },
+const GearList = ({
+  slot,
+  onChoose,
+  currentEquipId,
+  currentGearName,
+  twoHandRef,
+}) => {
+  const gearList = Gear.map((set) => {
+    if (set.itemList[slot]) {
+      return (
+        <div key={set.itemList[slot]}>
+          <button
+            onClick={() => {
+              currentEquipId[slot] = set.id;
+              currentGearName[slot] = set.itemList[slot];
 
-  {
-    id: 2,
-    name: "Griffin Knight",
-    setLvl: 40,
-    itemList: {
-      helmet: "Griffin Beak",
-      armor: "Griffin Plate Armor",
-      shoulder: "Griffin Shoulder Pads",
-      shoes: "Griffin Shinguards",
-    },
-    setBonuses: { pAtk: 9112, castRate: 0.15, spd: 462 },
-  },
+              if (slot === "rHand" && !set.twoHand) twoHandRef.current = false;
+              if (slot === "rHand" && set.twoHand) twoHandRef.current = true;
+              onChoose(slot);
+            }}
+          >
+            {set.itemList[slot]}
+          </button>
+        </div>
+      );
+    }
+    return null;
+  });
 
-  {
-    id: 3,
-    name: "Pietas",
-    setLvl: 50,
-    itemList: {
-      shoulder: "Piety Shoulder Pads",
-      shoes: "Piety Sandals",
-      amulet: "Piety Pendant",
-      ring: "Piety Ring",
-    },
-    setBonuses: { castRate: 0.1, int: 1887, spd: 566 },
-  },
+  return (
+    <div className="gear-list">
+      {slot}: {gearList}
+    </div>
+  );
+};
 
-  {
-    id: 4,
-    name: "Lightforged",
-    setLvl: 50,
-    itemList: {
-      helmet: "Helm of Light",
-      armor: "Armor of Light",
-      rHand: "Lightforged Longsword",
-      lHand: "Lightforged Shield",
-    },
-    setBonuses: { str: 1887, castRate: 0.15, hp: 75491 },
-  },
-
-  {
-    id: 5,
-    name: "Blessing of Light",
-    setLvl: 60,
-    itemList: {
-      helmet: "Hood of Blessing",
-      armor: "Robe of Blessing",
-      shoulder: "Pauldrons of Blessing",
-      shoes: "Boots of Blessing",
-      twoHand: "Cross of Blessing",
-    },
-    setBonuses: { hp: 83768, int: 2094, spd: 628, castRate: 0.25 },
-  },
-
-  {
-    id: 6,
-    name: "Shadow Hunters",
-    setLvl: 60,
-    itemList: {
-      helmet: "Shadow Hood",
-      armor: "Shadow Cape",
-      amulet: "Shadow Pendant",
-      ring: "Shadow Ring",
-    },
-    setBonuses: { str: 2234, castRate: 0.15, spd: 670 },
-  },
-
-  {
-    id: 7,
-    name: "Deity Knight",
-    setLvl: 70,
-    itemList: {
-      helmet: "Deity Helmet",
-      armor: "Deity Plate Armor",
-      shoulder: "Deity Shoulder Pads",
-      shoes: "Deity Boots",
-    },
-    setBonuses: { str: 2580, castRate: 0.15, spd: 774 },
-  },
-
-  {
-    id: 8,
-    name: "Shepherds",
-    setLvl: 70,
-    itemList: {
-      shoulder: "Shepherd Cape",
-      shoes: "Shepherd Shoes",
-      amulet: "Shepherd Chain",
-      ring: "Shepherd Ring",
-    },
-    setBonuses: { crit: 0.21, castRate: 0.15, spd: 774 },
-  },
-];
 export default GearList;

@@ -1,7 +1,7 @@
 import React from "react";
 import Home from "./components/Home";
 import IdleClicker from "./components/idle_clicker_components/IdleClicker";
-import GearOpt from "./components/gear_components/GearOpt";
+import GearSelector from "./components/gear_components/GearSelector";
 import Header from "./components/Header";
 import Route from "./components/Route";
 import "./App.css";
@@ -16,8 +16,8 @@ const App = () => {
       <Route href="/idleclicker">
         <IdleClicker />
       </Route>
-      <Route href="/gearoptimizer">
-        <GearOpt />
+      <Route href="/gearselector">
+        <GearSelector />
       </Route>
     </div>
   );

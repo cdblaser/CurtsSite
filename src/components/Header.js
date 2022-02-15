@@ -16,7 +16,7 @@ const Header = () => {
         <Link href="/idleclicker" className="item">
           Idle Game
         </Link>
-        <Link href="/gearoptimizer" className="item">
+        <Link href="/gearselector" className="item">
           EzPzSaga Gear Selector
         </Link>
       </div>

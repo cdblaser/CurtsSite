@@ -1,0 +1,48 @@
+button {
+  background: none;
+  border: 1px solid white;
+  color: white;
+}
+
+.gear-selector {
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+}
+
+.display-current-bonuses {
+  display: flex;
+  flex-direction: row;
+  flex-basis: 33%;
+  justify-content: center;
+}
+
+.display-gear {
+  display: flex;
+  flex-direction: row;
+  flex-basis: 33%;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.display-all-bonuses {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 33%;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px 0px;
+}
+
+.gear-list {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.unequip-gear {
+  max-width: 65px;
+}
