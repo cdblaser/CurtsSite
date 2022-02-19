@@ -1,13 +1,14 @@
 import React, { useState, useRef } from "react";
 import Gear from "./Gear";
 import GearList from "./GearList";
+import GearModal from "./GearModal";
+import "./GearModal.css";
 import "./GearSelector.css";
 
 /*
 materialUI library to make page
-ToDo:
-twoHandStuff
-
+react styles props
+look up dialogues instead of modals
 */
 
 const GearSelector = () => {
@@ -38,8 +39,8 @@ const GearSelector = () => {
           className="unequip-button"
           key={slot}
           onClick={() => {
-            currentEquipId[slot] = "";
-            currentGearName[slot] = "";
+            currentEquipId[slot] = null;
+            currentGearName[slot] = null;
             if (slot === "rHand" && twoHandRef.current)
               twoHandRef.current = false;
             setEquipId(currentEquipId);
@@ -54,7 +55,6 @@ const GearSelector = () => {
   };
 
   const considerTwoHand = (slot) => {
-    console.log(twoHandRef.current);
     if (twoHandRef.current && slot === "rHand" && currentGearName["lHand"]) {
       currentEquipId["lHand"] = "";
       currentGearName["lHand"] = "";
@@ -88,7 +88,7 @@ const GearSelector = () => {
       })
       .map(([id, gearCount]) => {
         const set = Gear.find((gearSet) => gearSet.id === Number(id));
-
+        if (!set) return null;
         return (
           <div key={id} className="display-current-bonuses">
             Set Bonuses:
@@ -108,24 +108,28 @@ const GearSelector = () => {
 
   const displayGearList = () => {
     return (
-      <div className="display-gear">
-        {Object.values(GearSlots).map((slot) => {
-          return (
-            <div key={slot}>
-              <GearList
-                slot={slot}
-                onChoose={onChoose}
-                currentEquipId={currentEquipId}
-                currentGearName={currentGearName}
-                twoHandRef={twoHandRef}
-              />
-              Chosen {slot}: {gearName[slot]}
-              {gearName[slot] ? "" : "none"}
-              <br />
-              {unequip(slot)}
-            </div>
-          );
-        })}
+      <div>
+        <div className="display-gear">
+          {Object.values(GearSlots).map((slot) => {
+            return (
+              <div key={slot}>
+                <GearModal slot={slot}>
+                  <GearList
+                    slot={slot}
+                    onChoose={onChoose}
+                    currentEquipId={currentEquipId}
+                    currentGearName={currentGearName}
+                    twoHandRef={twoHandRef}
+                  />
+                </GearModal>
+                Chosen {slot}: {gearName[slot]}
+                {gearName[slot] ? "" : "none"}
+                <br />
+                {unequip(slot)}
+              </div>
+            );
+          })}
+        </div>
       </div>
     );
   };
@@ -150,6 +154,7 @@ const GearSelector = () => {
 
   return (
     <div className="gear-selector">
+      {JSON.stringify(bonuses)}
       {displayCurrentBonuses()}
       {displayGearList()}
       {displayAllBonuses()}

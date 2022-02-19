@@ -35,7 +35,7 @@ button {
   padding: 20px 0px;
 }
 
-.gear-list {
+.modal {
   display: flex;
   flex-direction: column;
   min-width: 300px;
