@@ -7,6 +7,7 @@ const GearModal = ({ slot, src, children }) => {
     <div className="modal">
       <img
         src={src}
+        alt={slot}
         className="slot"
         onClick={() => {
           setShow(!show);

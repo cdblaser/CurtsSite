@@ -45,7 +45,6 @@ const GearSelector = () => {
   const [equipId, setEquipId] = useState({});
   const [bonuses, setBonuses] = useState({});
   const [gearName, setGearName] = useState({});
-  const [show, setShow] = useState(false);
   const twoHandRef = useRef();
 
   let currentEquipId = { ...equipId }; //spread previous state object to keep old values every re-render
