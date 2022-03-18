@@ -4,15 +4,24 @@ import GearList from "./GearList";
 import GearModal from "./GearModal";
 import "./GearModal.css";
 import "./GearSelector.css";
-
+import helmet from "../../assets/images/helmet.PNG";
+import armor from "../../assets/images/armor.PNG";
+import shoulder from "../../assets/images/shoulder.PNG";
+import shoes from "../../assets/images/shoes.PNG";
+import lHand from "../../assets/images/lHand.PNG";
+import rHand from "../../assets/images/rHand.PNG";
+import amulet from "../../assets/images/amulet.PNG";
+import ring from "../../assets/images/ring.PNG";
 /*
 materialUI library to make page
 react styles props
 look up dialogues instead of modals
 */
 
+console.log(amulet);
+
 const GearSelector = () => {
-  const GearSlots = {
+  const GearSlot = {
     HELMET: "helmet",
     ARMOR: "armor",
     SHOULDER: "shoulder",
@@ -22,10 +31,21 @@ const GearSelector = () => {
     AMULET: "amulet",
     RING: "ring",
   };
+  const GearSlots = [
+    { slot: GearSlot.HELMET, src: helmet },
+    { slot: GearSlot.ARMOR, src: armor },
+    { slot: GearSlot.SHOULDER, src: shoulder },
+    { slot: GearSlot.SHOES, src: shoes },
+    { slot: GearSlot.LEFT_HAND, src: lHand },
+    { slot: GearSlot.RIGHT_HAND, src: rHand },
+    { slot: GearSlot.AMULET, src: amulet },
+    { slot: GearSlot.RING, src: ring },
+  ];
 
   const [equipId, setEquipId] = useState({});
   const [bonuses, setBonuses] = useState({});
   const [gearName, setGearName] = useState({});
+  const [show, setShow] = useState(false);
   const twoHandRef = useRef();
 
   let currentEquipId = { ...equipId }; //spread previous state object to keep old values every re-render
@@ -41,7 +61,7 @@ const GearSelector = () => {
           onClick={() => {
             currentEquipId[slot] = null;
             currentGearName[slot] = null;
-            if (slot === "rHand" && twoHandRef.current)
+            if (slot === GearSlot.RIGHT_HAND && twoHandRef.current)
               twoHandRef.current = false;
             setEquipId(currentEquipId);
             setGearName(currentGearName);
@@ -55,13 +75,21 @@ const GearSelector = () => {
   };
 
   const considerTwoHand = (slot) => {
-    if (twoHandRef.current && slot === "rHand" && currentGearName["lHand"]) {
-      currentEquipId["lHand"] = "";
-      currentGearName["lHand"] = "";
+    if (
+      twoHandRef.current &&
+      slot === GearSlot.RIGHT_HAND &&
+      currentGearName[GearSlot.LEFT_HAND]
+    ) {
+      currentEquipId[GearSlot.LEFT_HAND] = "";
+      currentGearName[GearSlot.LEFT_HAND] = "";
     }
-    if (twoHandRef.current && slot === "lHand" && currentGearName["rHand"]) {
-      currentEquipId["rHand"] = "";
-      currentGearName["rHand"] = "";
+    if (
+      twoHandRef.current &&
+      slot === GearSlot.LEFT_HAND &&
+      currentGearName[GearSlot.RIGHT_HAND]
+    ) {
+      currentEquipId[GearSlot.RIGHT_HAND] = "";
+      currentGearName[GearSlot.RIGHT_HAND] = "";
     }
   };
 
@@ -108,28 +136,26 @@ const GearSelector = () => {
 
   const displayGearList = () => {
     return (
-      <div>
-        <div className="display-gear">
-          {Object.values(GearSlots).map((slot) => {
-            return (
-              <div key={slot}>
-                <GearModal slot={slot}>
-                  <GearList
-                    slot={slot}
-                    onChoose={onChoose}
-                    currentEquipId={currentEquipId}
-                    currentGearName={currentGearName}
-                    twoHandRef={twoHandRef}
-                  />
-                </GearModal>
-                Chosen {slot}: {gearName[slot]}
-                {gearName[slot] ? "" : "none"}
-                <br />
-                {unequip(slot)}
-              </div>
-            );
-          })}
-        </div>
+      <div className="display-gear">
+        {GearSlots.map((slot) => {
+          return (
+            <div>
+              <GearModal slot={slot.slot} src={slot.src}>
+                <GearList
+                  slot={slot.slot}
+                  onChoose={onChoose}
+                  currentEquipId={currentEquipId}
+                  currentGearName={currentGearName}
+                  twoHandRef={twoHandRef}
+                />
+              </GearModal>
+              Chosen {slot.slot}: {gearName[slot.slot]}
+              {gearName[slot.slot] ? "" : "none"}
+              <br />
+              {unequip(slot.slot)}
+            </div>
+          );
+        })}
       </div>
     );
   };

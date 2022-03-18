@@ -1,19 +1,18 @@
 import React, { useState } from "react";
 
-const GearModal = ({ slot, children }) => {
+const GearModal = ({ slot, src, children }) => {
   const [show, setShow] = useState(false);
   const showOrHide = show ? { display: "block" } : { display: "none" };
   return (
     <div className="modal">
-      <button
-        style={{}}
+      <img
+        src={src}
+        className="slot"
         onClick={() => {
-          setShow(true);
+          setShow(!show);
         }}
-      >
-        open {slot}
-      </button>
-      <div style={showOrHide} className="example">
+      />
+      <div style={showOrHide} className="modal-window">
         <div className="modal-header">header</div>
         <div className="modal-content">{children}</div>
         <div className="modal-footer">
