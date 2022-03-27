@@ -30,11 +30,7 @@ const GearList = ({
     return null;
   });
 
-  return (
-    <div className="gear-list">
-      {slot}: {gearList}
-    </div>
-  );
+  return <div className="gear-list">{gearList}</div>;
 };
 
 export default GearList;

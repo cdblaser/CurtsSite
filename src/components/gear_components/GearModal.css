@@ -1,0 +1,23 @@
+.modal-window {
+  display: flex;
+  flex-direction: column;
+  background: dimgray;
+  width: 40vw;
+  height: 30vh;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal {
+  display: flex;
+  position: absolute;
+  /* flex-direction: column; */
+  min-width: 300px;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  position: absolute;
+  inset: 0;
+  /* display: none; */
+  background: rgb(0, 0, 0, 0.5);
+}

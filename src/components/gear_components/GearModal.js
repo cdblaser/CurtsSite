@@ -1,33 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
+import ReactDOM from "react-dom";
 
-const GearModal = ({ slot, src, children }) => {
-  const [show, setShow] = useState(false);
-  const showOrHide = show ? { display: "block" } : { display: "none" };
-  return (
+const GearModal = ({ show, slot, toggleModal, children }) => {
+  if (!show) return null;
+  return ReactDOM.createPortal(
     <div className="modal">
-      <img
-        src={src}
-        alt={slot}
-        className="slot"
-        onClick={() => {
-          setShow(!show);
-        }}
-      />
-      <div style={showOrHide} className="modal-window">
-        <div className="modal-header">header</div>
+      <div className="modal-window">
+        <div className="modal-header">{slot}</div>
         <div className="modal-content">{children}</div>
         <div className="modal-footer">
-          footer
-          <button
-            onClick={() => {
-              setShow(false);
-            }}
-          >
-            Close modal
-          </button>
+          <button onClick={toggleModal}>close</button>
         </div>
       </div>
-    </div>
+    </div>,
+    document.getElementById("root")
   );
 };
 

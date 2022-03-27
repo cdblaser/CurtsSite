@@ -40,14 +40,6 @@ button {
   padding: 20px 0px;
 }
 
-.modal {
-  display: flex;
-  flex-direction: column;
-  min-width: 300px;
-  justify-content: center;
-  padding: 20px;
-}
-
 .unequip-gear {
   max-width: 65px;
 }

@@ -16,6 +16,7 @@ import ring from "../../assets/images/ring.PNG";
 materialUI library to make page
 react styles props
 look up dialogues instead of modals
+learn context and redux
 */
 
 console.log(amulet);
@@ -45,6 +46,12 @@ const GearSelector = () => {
   const [equipId, setEquipId] = useState({});
   const [bonuses, setBonuses] = useState({});
   const [gearName, setGearName] = useState({});
+  const [show, setShow] = useState(
+    Object.values(GearSlot).reduce((prev, curr) => {
+      return { ...prev, [curr]: false };
+    }, {})
+  );
+
   const twoHandRef = useRef();
 
   let currentEquipId = { ...equipId }; //spread previous state object to keep old values every re-render
@@ -134,12 +141,28 @@ const GearSelector = () => {
   };
 
   const displayGearList = () => {
+    const toggleModal = (slot, display) => {
+      setShow((prev) => {
+        return { ...prev, [slot]: display };
+      });
+    };
+
     return (
       <div className="display-gear">
         {GearSlots.map((slot) => {
           return (
-            <div>
-              <GearModal slot={slot.slot} src={slot.src}>
+            <div key={slot.slot}>
+              <img
+                src={slot.src}
+                alt={slot.slot}
+                className="slot"
+                onClick={() => toggleModal(slot.slot, true)}
+              />
+              <GearModal
+                show={show[slot.slot]}
+                slot={slot.slot}
+                toggleModal={() => toggleModal(slot.slot, false)}
+              >
                 <GearList
                   slot={slot.slot}
                   onChoose={onChoose}
