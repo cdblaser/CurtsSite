@@ -8,6 +8,8 @@ button {
   display: flex;
   align-content: center;
   flex-direction: column;
+  padding-top: 1%;
+  align-items: center;
 }
 
 .display-current-bonuses {

@@ -12,14 +12,13 @@ import lHand from "../../assets/images/lHand.PNG";
 import rHand from "../../assets/images/rHand.PNG";
 import amulet from "../../assets/images/amulet.PNG";
 import ring from "../../assets/images/ring.PNG";
+
 /*
 materialUI library to make page
 react styles props
 look up dialogues instead of modals
 learn context and redux
 */
-
-console.log(amulet);
 
 const GearSelector = () => {
   const GearSlot = {
@@ -125,7 +124,6 @@ const GearSelector = () => {
         if (!set) return null;
         return (
           <div key={id} className="display-current-bonuses">
-            Set Bonuses:
             {set.name} - {""}
             {Object.entries(set.setBonuses).map(
               ([bonus, bonusValue], index) => {
@@ -202,7 +200,7 @@ const GearSelector = () => {
 
   return (
     <div className="gear-selector">
-      {JSON.stringify(bonuses)}
+      Set Bonuses:
       {displayCurrentBonuses()}
       {displayGearList()}
       {displayAllBonuses()}

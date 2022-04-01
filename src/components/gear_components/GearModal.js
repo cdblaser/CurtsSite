@@ -4,10 +4,17 @@ import ReactDOM from "react-dom";
 const GearModal = ({ show, slot, toggleModal, children }) => {
   if (!show) return null;
   return ReactDOM.createPortal(
-    <div className="modal">
-      <div className="modal-window">
+    <div className="modal" onClick={toggleModal}>
+      <div
+        className="modal-window"
+        onClick={(e) => {
+          e.stopPropagation(); // wow.
+        }}
+      >
         <div className="modal-header">{slot}</div>
-        <div className="modal-content">{children}</div>
+        <div className="modal-content" onClick={toggleModal}>
+          {children}
+        </div>
         <div className="modal-footer">
           <button onClick={toggleModal}>close</button>
         </div>
