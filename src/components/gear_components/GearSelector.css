@@ -8,15 +8,7 @@ button {
   display: flex;
   align-content: center;
   flex-direction: column;
-  padding-top: 1%;
   align-items: center;
-}
-
-.display-current-bonuses {
-  display: flex;
-  flex-direction: row;
-  flex-basis: 33%;
-  justify-content: center;
 }
 
 .display-gear {
@@ -44,6 +36,15 @@ button {
 
 .unequip-gear {
   max-width: 65px;
+}
+
+.total-bonuses-list {
+  font-size: large;
+  padding: 1%;
+}
+
+.gear-selector-top {
+  padding: 1%;
 }
 
 .slot {

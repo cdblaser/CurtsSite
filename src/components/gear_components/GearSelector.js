@@ -56,6 +56,7 @@ const GearSelector = () => {
   let currentEquipId = { ...equipId }; //spread previous state object to keep old values every re-render
   let currentBonuses = {}; //keep empty so it resets upon re-render to accurately display gear counts
   let currentGearName = { ...gearName }; //spread to keep track of names for each slot
+  let addedBonusesList = {};
 
   const unequip = (slot) => {
     if (currentGearName[slot]) {
@@ -113,29 +114,32 @@ const GearSelector = () => {
     countBonuses();
   };
 
-  const displayCurrentBonuses = () => {
+  const calculateTotalBonuses = () => {
     if (!bonuses) return null;
-    return Object.entries(bonuses)
+    Object.entries(bonuses)
       .filter(([_, gearCount]) => {
         return gearCount > 1;
       })
       .map(([id, gearCount]) => {
         const set = Gear.find((gearSet) => gearSet.id === Number(id));
         if (!set) return null;
-        return (
-          <div key={id} className="display-current-bonuses">
-            {set.name} - {""}
-            {Object.entries(set.setBonuses).map(
-              ([bonus, bonusValue], index) => {
-                if (index <= gearCount - 2) {
-                  return `|${bonus} - ${bonusValue}| `;
-                }
-                return null;
-              }
-            )}
-          </div>
+        return Object.entries(set.setBonuses).map(
+          ([bonus, bonusValue], index) => {
+            if (index <= gearCount - 2) {
+              addedBonusesList[bonus] =
+                (addedBonusesList[bonus] || 0) + bonusValue;
+            }
+            return null;
+          }
         );
       });
+    return Object.entries(addedBonusesList).map(([e, x]) => {
+      return (
+        <div className="total-bonuses-list" key={e}>
+          {e} - {x}
+        </div>
+      );
+    });
   };
 
   const displayGearList = () => {
@@ -149,7 +153,7 @@ const GearSelector = () => {
       <div className="display-gear">
         {GearSlots.map((slot) => {
           return (
-            <div key={slot.slot}>
+            <div key={slot.slot} className="display-gear-info">
               <img
                 src={slot.src}
                 alt={slot.slot}
@@ -169,7 +173,8 @@ const GearSelector = () => {
                   twoHandRef={twoHandRef}
                 />
               </GearModal>
-              Chosen {slot.slot}: {gearName[slot.slot]}
+              Chosen {slot.slot}: <br />
+              {gearName[slot.slot]}
               {gearName[slot.slot] ? "" : "none"}
               <br />
               {unequip(slot.slot)}
@@ -200,8 +205,9 @@ const GearSelector = () => {
 
   return (
     <div className="gear-selector">
-      Set Bonuses:
-      {displayCurrentBonuses()}
+      <div className="gear-selector-top">Set Bonuses: {""}</div>
+
+      {calculateTotalBonuses()}
       {displayGearList()}
       {displayAllBonuses()}
     </div>

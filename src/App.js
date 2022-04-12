@@ -2,6 +2,7 @@ import React from "react";
 import Home from "./components/Home";
 import IdleClicker from "./components/idle_clicker_components/IdleClicker";
 import GearSelector from "./components/gear_components/GearSelector";
+import TwitterPractice from "./components/twitter_practice_components/TwitterPractice";
 import Header from "./components/Header";
 import Route from "./components/Route";
 
@@ -19,6 +20,9 @@ const App = () => {
       </Route>
       <Route href="/gearselector">
         <GearSelector />
+      </Route>
+      <Route href="/twitterpractice">
+        <TwitterPractice />
       </Route>
     </div>
   );

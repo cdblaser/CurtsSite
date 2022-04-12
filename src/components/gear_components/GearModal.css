@@ -10,14 +10,12 @@
 
 .modal {
   display: flex;
-  position: absolute;
-  /* flex-direction: column; */
   min-width: 300px;
   justify-content: center;
   align-items: center;
   padding: 20px;
-  position: absolute;
+  position: fixed;
   inset: 0;
-  /* display: none; */
+  overflow: hidden;
   background: rgb(0, 0, 0, 0.5);
 }

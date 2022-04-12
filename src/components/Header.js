@@ -19,6 +19,9 @@ const Header = () => {
         <Link href="/gearselector" className="item">
           EzPzSaga Gear Selector
         </Link>
+        <Link href="/twitterpractice" className="item">
+          Twitter Practice
+        </Link>
       </div>
     </div>
   );
