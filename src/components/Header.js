@@ -22,6 +22,9 @@ const Header = () => {
         <Link href="/twitterpractice" className="item">
           Twitter Practice
         </Link>
+        <Link href="/rps" className="item">
+          Rock Paper Scissors
+        </Link>
       </div>
     </div>
   );

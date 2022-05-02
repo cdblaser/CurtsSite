@@ -41,6 +41,7 @@ button {
 .total-bonuses-list {
   font-size: large;
   padding: 1%;
+  border: 1px solid black;
 }
 
 .gear-selector-top {

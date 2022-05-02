@@ -1,10 +1,11 @@
 import React from "react";
 import Home from "./components/Home";
+import Route from "./components/Route";
+import Header from "./components/Header";
 import IdleClicker from "./components/idle_clicker_components/IdleClicker";
 import GearSelector from "./components/gear_components/GearSelector";
 import TwitterPractice from "./components/twitter_practice_components/TwitterPractice";
-import Header from "./components/Header";
-import Route from "./components/Route";
+import Rps from "./components/rps_components/Rps.js";
 
 import "./App.css";
 
@@ -23,6 +24,9 @@ const App = () => {
       </Route>
       <Route href="/twitterpractice">
         <TwitterPractice />
+      </Route>
+      <Route href="/rps">
+        <Rps />
       </Route>
     </div>
   );
