@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import "./Rps.css";
 
 const Rps = () => {
@@ -31,7 +31,7 @@ const Rps = () => {
     );
   };
 
-  const result = ([choiceA, choiceB, choiceC]) => {
+  const result = useCallback(([choiceA, choiceB, choiceC]) => {
     if (!playerChoice) return;
 
     if (computerChoice === playerChoice) {
@@ -47,7 +47,7 @@ const Rps = () => {
       setScore(score + 1);
       setResultString("You won!");
     }
-  };
+  });
 
   useEffect(() => {
     result(choices);
