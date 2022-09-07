@@ -25,6 +25,9 @@ const Header = () => {
         <Link href="/rps" className="item">
           Rock Paper Scissors
         </Link>
+        <Link href="/game1" className="item">
+          Game1
+        </Link>
       </div>
     </div>
   );
