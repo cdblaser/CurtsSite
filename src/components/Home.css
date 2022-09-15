@@ -1,7 +1,11 @@
 a {
-  color: #fb94ff;
+  color: #3ad900;
 }
 
 a:visited {
-  color: #fb94ff;
+  color: rgba(58, 217, 0, 0.6);
+}
+
+.all-content {
+  max-width: 1000px;
 }
