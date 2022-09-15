@@ -1,20 +1,13 @@
-.header {
+.entire-header {
   display: flex;
   flex-direction: column;
   background-color: #1e1e3f;
-  font-family: monospace;
-  border: 1px #a599e9 solid;
+  min-width: min(600px, 80vw);
 }
 
 .title {
-  display: flex;
-  justify-content: center;
   text-align: center;
-}
-
-a:visited {
-  text-decoration: none;
-  color: #fad000;
+  border: 1px #a599e9 solid;
 }
 
 .navbar {
@@ -22,27 +15,31 @@ a:visited {
   flex-direction: row;
   background-color: #2d2b55;
   border: solid #a599e9;
-  border-width: 1px 0px 0px 0px;
-  text-align: center;
+  border-width: 0px 1px 1px 0px;
 }
 
 .navbar a {
+  /* align-items: stretch; */
+  text-align: center;
+  flex-wrap: nowrap;
   padding: 14px 20px;
   text-decoration: none;
   border: solid #a599e9;
-  border-width: 0px 1px 0px 0px;
+  border-width: 0px 1px 0px 1px;
+  margin: 0px -1px 0px 0px;
+  color: #a599e9;
+  /* min-width: 10%; */
 }
 
 .navbar a:hover {
-  opacity: 0.8;
+  color: rgba(165, 153, 233, 0.8);
 }
 .navbar a:active {
-  opacity: 0.6;
+  color: rgba(165, 153, 233, 0.6);
 }
 
 .item {
   background-color: #2d2b55;
-  color: #a599e9;
 }
 
 .item:visited {
@@ -51,7 +48,6 @@ a:visited {
 
 .current-item {
   background-color: #4d21fc;
-  text-decoration: none;
 }
 
 .current-item:visited {

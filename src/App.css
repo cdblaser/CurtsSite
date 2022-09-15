@@ -1,11 +1,11 @@
 body {
-  display: block;
-
-  font-family: monospace;
+  display: flex;
+  font: 13px monospace;
   background-color: #2d2b55;
-  padding: 10px;
-  margin: 0;
+  /* padding: 8px; */
+  margin: 8px;
   color: #fad000;
+  min-width: 90vw;
 }
 
 /* #modal-container {
