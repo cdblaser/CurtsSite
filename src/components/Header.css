@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   background-color: #1e1e3f;
-  min-width: min(600px, 80vw);
 }
 
 .title {
@@ -19,16 +18,14 @@
 }
 
 .navbar a {
-  /* align-items: stretch; */
   text-align: center;
-  flex-wrap: nowrap;
   padding: 14px 20px;
   text-decoration: none;
   border: solid #a599e9;
   border-width: 0px 1px 0px 1px;
   margin: 0px -1px 0px 0px;
   color: #a599e9;
-  /* min-width: 10%; */
+  min-width: 5%;
 }
 
 .navbar a:hover {

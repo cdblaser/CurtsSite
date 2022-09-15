@@ -2,17 +2,16 @@ body {
   display: flex;
   font: 13px monospace;
   background-color: #2d2b55;
-  /* padding: 8px; */
   margin: 8px;
   color: #fad000;
-  min-width: 90vw;
-}
 
-/* #modal-container {
-  position: absolute;
-  inset: 0;
-  z-index: 5;
-} */
+  min-width: 600px;
+}
+@media (min-width: 1200px) {
+  body {
+    min-width: 1200px;
+  }
+}
 
 #root {
   z-index: 0;
