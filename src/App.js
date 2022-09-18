@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Home from "./components/Home";
 import Route from "./components/Route";
 import Header from "./components/Header";
@@ -11,8 +11,23 @@ import Game1 from "./components/game1_components/Game1.js";
 import "./App.css";
 
 const App = () => {
+  const [backendData, setBackendData] = useState([{}]);
+
+  useEffect(() => {
+    fetch("/api")
+      .then((response) => response.json())
+      .then((data) => {
+        setBackendData(data);
+      });
+  }, []);
+
   return (
     <div>
+      {typeof backendData.users === "undefined" ? (
+        <p>Loading...</p>
+      ) : (
+        backendData.users.map((user, i) => <p key={i}>{user}</p>)
+      )}
       <Header />
       <Route href="/">
         <Home />

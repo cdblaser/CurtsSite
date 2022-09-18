@@ -2,6 +2,7 @@ import React from "react";
 import "./Home.css";
 
 const Home = () => {
+  let key = 1;
   const webDevNotes = [
     {
       href: "https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview",
@@ -138,8 +139,9 @@ const Home = () => {
 
   const listSites = (arr) =>
     arr.map((x) => {
+      key++;
       return (
-        <div>
+        <div key={key}>
           <a href={x.href} target="_blank" rel="noopener noreferrer">
             {x.desc}
           </a>
@@ -155,7 +157,8 @@ const Home = () => {
 
   const list = (arr) =>
     arr.map((x) => {
-      return <li>{x}</li>;
+      key++;
+      return <li key={key}>{x}</li>;
     });
 
   return (
@@ -167,9 +170,9 @@ const Home = () => {
         time with my family.
       </p>
       {title("List of notes for web dev")}
-      <p>{listSites(webDevNotes)}</p>
+      {listSites(webDevNotes)}
       {title("List of stuff for me to study and know")}
-      <p>{listSites(studyStuff)}</p>
+      {listSites(studyStuff)}
       {title("Cool Links")}
       {listSites(coolLinks)}
       {title("Youtube channels for comp sci/dev")}
