@@ -10,7 +10,7 @@ const TwitterPractice = () => {
   4. create server.js file in server directory
   5. in server directory, type npm install express pg cors (can also $npm install nodemon -D so server auto-refreshes)
   NOTE: cors: allows different domain applications to interact with each other, pg: connects db with server to run postgresql queries
-  6. in package.json, add scripts "start": "node server", and "dev": "nodemon server"
+  6. in package.json, add scripts "start": "node server", and "dev": "nodemon server". can use $npm run dev to run dev script
   7. in client directory, run $npx create-react-app . like usual
   8. in App.js, create functional component <App/>
   9. in server.js, look at code to get a feel. note: have to have const app = require("express")(). use listen() as well

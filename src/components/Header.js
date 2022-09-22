@@ -28,6 +28,12 @@ const Header = () => {
         <Link href="/game1" className="item">
           Game1
         </Link>
+        <Link href="/roadCross" className="item">
+          Road Cross
+        </Link>
+        <Link href="/roguelike" className="item">
+          Roguelike
+        </Link>
       </div>
     </div>
   );

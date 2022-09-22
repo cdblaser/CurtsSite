@@ -7,6 +7,8 @@ import GearSelector from "./components/gear_components/GearSelector";
 import TwitterPractice from "./components/twitter_practice_components/TwitterPractice";
 import Rps from "./components/rps_components/Rps.js";
 import Game1 from "./components/game1_components/Game1.js";
+import RoadCross from "./components/roadCross/RoadCross.js";
+import Roguelike from "./components/roguelike/Roguelike.js";
 
 import "./App.css";
 
@@ -46,6 +48,12 @@ const App = () => {
       </Route>
       <Route href="/game1">
         <Game1 />
+      </Route>
+      <Route href="/roadCross">
+        <RoadCross />
+      </Route>
+      <Route href="/roguelike">
+        <Roguelike />
       </Route>
     </div>
   );

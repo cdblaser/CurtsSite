@@ -190,6 +190,40 @@ const Home = () => {
           this will return any html elements or react components under the
           component having prop passed to
         </dd>
+        <dt>
+          <b>window, document, event</b>
+        </dt>
+        <dd>
+          Three very important things to learn about, look up MDN documentation.
+        </dd>
+        <dt>
+          <b>Spreading and destructuring</b>
+        </dt>
+        <dd>
+          spreading 'expands' an array or object (takes elements out of
+          brackets). Destructuring 'unpacks' an array or object (assigns
+          elements to vars).
+        </dd>
+        <dt>
+          <b>Classes</b>
+        </dt>
+        <dd>
+          extending a class creates a child and lets you add/modify properties
+        </dd>
+        <dt>
+          <b>Prototypes</b>
+        </dt>
+        <dd>
+          every object has a prototype, and every prototype has a prototype
+          (until you reach null)
+        </dd>
+        <dt>
+          <b>'this' keyword</b>
+        </dt>
+        <dd>
+          'this' is pretty confusing, but is a big part of pointing to desired
+          property of classes
+        </dd>
       </dl>
       {title("Useful Programs for PC")}
       <ul>{list(usefulPrograms)}</ul>
