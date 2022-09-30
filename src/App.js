@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Home from "./components/Home";
+import Home from "./components/HomePage/Home";
 import Route from "./components/Route";
 import Header from "./components/Header";
 import IdleClicker from "./components/idle_clicker_components/IdleClicker";

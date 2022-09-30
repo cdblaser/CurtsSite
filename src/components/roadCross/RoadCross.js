@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import Character from "./Character";
 import "./RoadCross.css";
 
 const RoadCross = () => {
@@ -42,91 +43,13 @@ const RoadCross = () => {
     update();
   }, [frame]);
 
-  class gameCharacter {
-    constructor(x, y, width, height, color, xSpeed, ySpeed) {
-      this.x = x;
-      this.y = y;
-      this.width = width;
-      this.height = height;
-      this.color = color;
-      this.xSpeed = xSpeed;
-      this.ySpeed = ySpeed;
-      this.playerSpeed = 3;
-    }
-    moveEnemyVertically() {
-      if (this.y > screenHeight - 90 || this.y < 40) {
-        this.ySpeed = -this.ySpeed;
-      }
-      this.y += this.ySpeed;
-    }
-    moveEnemyHorizontally() {
-      this.x += this.xSpeed;
-    }
-    movePlayerVertically() {
-      if (this.y <= 0) {
-        this.y = 0;
-      } else if (this.y > screenHeight - 50) {
-        this.y = screenHeight - 50;
-      }
-      this.y += this.ySpeed;
-    }
-    movePlayerHorizontally() {
-      if (this.x > screenWidth - 50) {
-        this.x = screenWidth - 50;
-      } else if (this.x <= 0) {
-        this.x = 0;
-      }
-      this.x += this.xSpeed;
-    }
-  }
-
-  var player = new gameCharacter(
-    50,
-    225,
-    width,
-    height,
-    "rgb(0, 0, 255)",
-    0,
-    0
-  );
+  var player = new Character(50, 225, width, height, "rgb(0, 0, 255)", 0, 0);
   var enemies = [
-    new gameCharacter(
-      player.x + 200,
-      50,
-      width,
-      height,
-      "rgb(0, 255, 0)",
-      0,
-      2
-    ),
-    new gameCharacter(
-      player.x + 475,
-      400,
-      width,
-      height,
-      "rgb(0, 155, 0)",
-      0,
-      4
-    ),
-    new gameCharacter(
-      player.x + 750,
-      225,
-      width,
-      height,
-      "rgb(0, 100, 0)",
-      0,
-      6
-    ),
+    new Character(player.x + 200, 50, width, height, "rgb(0, 255, 0)", 0, 2),
+    new Character(player.x + 475, 400, width, height, "rgb(0, 155, 0)", 0, 4),
+    new Character(player.x + 750, 225, width, height, "rgb(0, 100, 0)", 0, 6),
   ];
-  var trophy = new gameCharacter(
-    925,
-    225,
-    width,
-    height,
-    "rgb(0, 0, 155)",
-    0,
-    0
-  );
+  var trophy = new Character(925, 225, width, height, "rgb(0, 0, 155)", 0, 0);
   //   var sprites = {};
   //   var loadSprites = function () {
   //     sprites.player = new Image();

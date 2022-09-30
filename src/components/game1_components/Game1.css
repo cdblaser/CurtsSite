@@ -1,5 +1,4 @@
-.canvas1 {
-  border: 5px solid black;
-  width: 600px;
-  height: 600px;
+#canvas {
+  border: 3px solid black;
+  margin: auto;
 }
