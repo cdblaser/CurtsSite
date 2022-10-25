@@ -34,6 +34,12 @@ const Header = () => {
         <Link href="/roguelike" className="item">
           Roguelike
         </Link>
+        <Link href="/league" className="item">
+          League
+        </Link>
+        <Link href="/practice" className="item">
+          Practice
+        </Link>
       </div>
     </div>
   );

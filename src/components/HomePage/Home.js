@@ -114,6 +114,10 @@ const Home = () => {
       href: null,
       desc: "React Context - props propagate through tree without manual passing",
     },
+    {
+      href: "https://chakra-ui.com",
+      desc: "useful css library",
+    },
   ];
 
   const usefulPrograms = [
@@ -165,9 +169,9 @@ const Home = () => {
     <div className="all-content">
       <h3>Welcome to my portfolio!</h3>
       <p>
-        Currently, I am learning React and everything to do with web
-        development. My hobbies include piano, riding my bicycle, and spending
-        time with my family.
+        Yes, my portfolio is messy! I am always working on it. Currently, I am
+        learning React and everything to do with web development. My hobbies
+        include piano, riding my bicycle, and spending time with my family.
       </p>
       {title("List of notes for web dev")}
       {listSites(webDevNotes)}

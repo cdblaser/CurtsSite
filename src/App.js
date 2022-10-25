@@ -9,27 +9,28 @@ import Rps from "./components/rps_components/Rps.js";
 import Game1 from "./components/game1_components/Game1.js";
 import RoadCross from "./components/roadCross/RoadCross.js";
 import Roguelike from "./components/roguelike/Roguelike.js";
-
+import League from "./components/league_components/League.js";
+import Practice from "./components/practice/Practice.js";
 import "./App.css";
 
 const App = () => {
-  const [backendData, setBackendData] = useState([{}]);
+  // const [backendData, setBackendData] = useState([{}]);
 
-  useEffect(() => {
-    fetch("/api")
-      .then((response) => response.json())
-      .then((data) => {
-        setBackendData(data);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch("/api")
+  //     .then((response) => response.json(response.data))
+  //     .then((data) => {
+  //       setBackendData(data);
+  //     });
+  // }, []);
 
   return (
     <div>
-      {typeof backendData.users === "undefined" ? (
+      {/* {typeof backendData.freeChampionIds === "undefined" ? (
         <p>Loading...</p>
       ) : (
-        backendData.users.map((user, i) => <p key={i}>{user}</p>)
-      )}
+        backendData.freeChampionIds.map((user, i) => <p key={i}>{user}</p>)
+      )} */}
       <Header />
       <Route href="/">
         <Home />
@@ -54,6 +55,12 @@ const App = () => {
       </Route>
       <Route href="/roguelike">
         <Roguelike />
+      </Route>
+      <Route href="/league">
+        <League />
+      </Route>
+      <Route href="/practice">
+        <Practice />
       </Route>
     </div>
   );
