@@ -28,6 +28,7 @@ const IdleClicker = () => {
   const [gold, setGold] = useState(0);
   const [level, setLevel] = useState(1);
   const callback = useRef();
+  const hello = "hello";
 
   useEffect(() => {
     const monster = () => {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { createWorker } from "tesseract.js";
+// import { createWorker } from "tesseract.js";
 import TeslaPic from "../../assets/images/billboard-copy.jpg";
 
 const Practice = () => {
@@ -13,25 +13,25 @@ const Practice = () => {
   const [location, setLocation] = useState("");
   const [ocr, setOcr] = useState("Recognizing...");
 
-  const worker = createWorker({
-    logger: (m) => console.log(m),
-  });
+  // const worker = createWorker({
+  //   logger: (m) => console.log(m),
+  // });
 
-  const doOCR = async () => {
-    await worker.load();
-    await worker.loadLanguage("eng");
-    await worker.initialize("eng");
-    const {
-      data: { text },
-    } = await worker.recognize(TeslaPic);
-    setOcr(text);
-    console.log("text: " + text);
-    await worker.terminate();
-  };
+  // const doOCR = async () => {
+  //   await worker.load();
+  //   await worker.loadLanguage("eng");
+  //   await worker.initialize("eng");
+  //   const {
+  //     data: { text },
+  //   } = await worker.recognize(TeslaPic);
+  //   setOcr(text);
+  //   console.log("text: " + text);
+  //   await worker.terminate();
+  // };
 
-  useEffect(() => {
-    doOCR();
-  }, [ocr]);
+  // useEffect(() => {
+  //   doOCR();
+  // }, [ocr]);
 
   //   const output = document.getElementById("files");
 

@@ -31,9 +31,6 @@ const Header = () => {
         <Link href="/roadCross" className="item">
           Road Cross
         </Link>
-        <Link href="/roguelike" className="item">
-          Roguelike
-        </Link>
         <Link href="/league" className="item">
           League
         </Link>

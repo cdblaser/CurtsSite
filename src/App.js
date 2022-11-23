@@ -8,7 +8,6 @@ import TwitterPractice from "./components/twitter_practice_components/TwitterPra
 import Rps from "./components/rps_components/Rps.js";
 import Game1 from "./components/game1_components/Game1.js";
 import RoadCross from "./components/roadCross/RoadCross.js";
-import Roguelike from "./components/roguelike/Roguelike.js";
 import League from "./components/league_components/League.js";
 import Practice from "./components/practice/Practice.js";
 import "./App.css";
@@ -52,9 +51,6 @@ const App = () => {
       </Route>
       <Route href="/roadCross">
         <RoadCross />
-      </Route>
-      <Route href="/roguelike">
-        <Roguelike />
       </Route>
       <Route href="/league">
         <League />
