@@ -51,11 +51,6 @@ const League = () => {
 
 export default League;
 
-// const instance = axios.create({
-//   baseURL: "https://na1.api.riotgames.com/lol/platform/v3/champion-rotations",
-//   params: { api_key: "RGAPI-193c1a36-4262-4b0f-878e-e7db687d0e7f" },
-// });
-
 // const getData = async () => {
 //   const response = await instance.get("");
 //   setState(response);
@@ -69,12 +64,3 @@ export default League;
 //   baseURL: "https://na1.api.riotgames.com/lol/platform/v3/champion-rotations",
 //   // params: { api_key: "RGAPI-b5b9cc56-f41d-4eaa-991e-d4f8b7146cd7" },
 // });
-
-// const requestTime = (req, res, next) => {
-//   req.hello = Date.now();
-//   next();
-// };
-
-// useEffect(() => {
-//   getData();
-// }, []);
